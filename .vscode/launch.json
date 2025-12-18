@@ -1,0 +1,19 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Run Current file",
+			"program": "${file}",
+			"request": "launch",
+			"type": "bun",
+			"cwd": "${workspaceFolder}/${relativeFileDirname}"
+		},
+		{
+			"name": "Compile",
+			"program": "${workspaceFolder}/buildTools/compile.mts",
+			"request": "launch",
+			"type": "bun",
+			"cwd": "${workspaceFolder}"
+		}
+	]
+}
