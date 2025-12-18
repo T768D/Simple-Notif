@@ -1,0 +1,44 @@
+#notif {
+	width: max-content;
+
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(15px);
+	-webkit-backdrop-filter: blur(15px);
+	color: white;
+	transition: all 0.3s;
+
+	padding: 10px 20px;
+	border-radius: 5px;
+
+	white-space-collapse: preserve-spaces;
+	text-align: center;
+	font-size: 1.2vw;
+}
+
+#notif:hover {
+	filter: contrast(2);
+	background: rgba(20 20 20, 1);
+	cursor: pointer;
+	scale: 1.05;
+}
+
+#notifContainer {
+	display: flex;
+	justify-content: center;
+	background: none;
+	z-index: 999;
+
+	height: max-content;
+	width: 100vw;
+
+	transition: all 0.3s;
+	top: -100px;
+	position: fixed;
+}
+
+.warning {
+	animation: 2.5s linear infinite shine;
+	background: rgba(35 35 35, 0.8);
+	color: #FF0000;
+}
