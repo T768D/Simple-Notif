@@ -1,8 +1,9 @@
 {
-	"name": "simple-notification",
+	"name": "simple-notif",
 	"version": "1.0",
 	"author": "T768D",
 	"main": "./dist/main.js",
+	"types": "./dist/main.d.mts",
 	"devDependencies": {
 		"@eslint/js": "^9.39.2",
 		"@types/bun": "latest",

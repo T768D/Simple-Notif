@@ -13,7 +13,8 @@
 			"program": "${workspaceFolder}/buildTools/compile.mts",
 			"request": "launch",
 			"type": "bun",
-			"cwd": "${workspaceFolder}"
+			"cwd": "${workspaceFolder}",
+			"preLaunchTask":"tsc",
 		}
 	]
 }
