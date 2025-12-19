@@ -14,17 +14,23 @@ It is highly likely that there is a better and more customisable library out the
 
 <br>
 
+## Installling
+Bun
+```bash
+bun install https://github.com/T768D/Simple-Notif
+```
+
+npm
+```
+npm install https://github.com/T768D/Simple-Notif
+```
+
+<br>
+
 ## Development Requirements
 - [Bun](https://bun.sh)
 - [VSCode](https://code.visualstudio.com/) - Optional, launching bundler already configured
 - TypeScript `bun install -g typescript`
-
-<br>
-
-## Installling
-```
-bun install
-```
 
 <br>
 
