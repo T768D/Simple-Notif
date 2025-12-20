@@ -132,7 +132,3 @@ function showNextNotif() {
 	showingNotif = false;
 	notifContainer.style.top = "-100px";
 }
-
-// @ts-expect-error
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-unsafeWindow.showNotif = showNotif;
