@@ -48,7 +48,7 @@ document.body.appendChild(notifContainer);
  * @example export const showNotif = initNotif(logToConsole);
  */
 export default function initNotif(func?: AcceptedFunction) {
-	if (typeof func !== "function")
+	if (func && typeof func !== "function")
 		throw new Error("Log function in showNotif was changed to something uncallable");
 
 	logFunction = func;
