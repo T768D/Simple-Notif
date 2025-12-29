@@ -1,5 +1,12 @@
+![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![ESLint & TypeScript ESLint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
+![0 dependencies](https://img.shields.io/badge/0%20Dependencies-F80000?style=for-the-badge)
+![Bun](https://img.shields.io/badge/bun-282a36?style=for-the-badge&logo=bun&logoColor=fbf0df)
+![VSCode](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+![License](https://img.shields.io/badge/CC--BY--NC--ND--4.0-lightgrey?style=for-the-badge)
+
 ## Overview
-This is a lightweight notification library designed specifically for my needs. 
+This is a lightweight, 0 dependancy notification library designed specifically for my needs. 
 It is highly likely that there is a better and more customisable library out there
 
 <br>
