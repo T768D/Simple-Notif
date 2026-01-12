@@ -1,4 +1,4 @@
-type AcceptedFunction = (logLevel: logLevel, message: string, ...others: unknown[]) => void;
+type AcceptedFunction = (logLevel: logLevel, message: string, ...others: unknown[]) => unknown;
 type NotifQueue = Parameters<typeof realShowNotif>[];
 export type logLevel = "log" | "warn" | "error";
 
@@ -30,7 +30,6 @@ let currentNotifOptions: NotifQueue[number] | undefined;
 const notifQueue: NotifQueue = [];
 
 
-// not worth having whole html file for
 const notifContainer = document.createElement("div");
 notifContainer.id = "notifContainer";
 
@@ -43,7 +42,6 @@ document.body.appendChild(notifContainer);
 
 /** 
  * @param func A custom function that is called when showNotif is called. This is optional
- * Type: (logLevel: string, message: string, error: unknown) => void
  * @returns the showNotif function
  * @example export const showNotif = initNotif(logToConsole);
  */
@@ -63,7 +61,7 @@ export default function initNotif(func?: AcceptedFunction) {
  * @param userMessage The message that will be shown to the user on the notification
  * @param devMessage The message that will be logged in console and saved, if null, it will be the same as userMessage
  * @param options Options for this function. See {@linkcode NotifOptions} for more detail
- * @param err Meant for the error object, can be used for anything you want to be logged to console but sent to the notif
+ * @param err Meant for the error object, can be used for anything you want to be logged to console
  */
 function showNotif(
 	logType: logLevel,
