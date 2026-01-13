@@ -35,6 +35,8 @@
 	transition: all 0.3s;
 	top: -100px;
 	position: fixed;
+
+	pointer-events: none;
 }
 
 .warning {
