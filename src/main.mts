@@ -105,8 +105,8 @@ function realShowNotif(
 ) {
 	showingNotif = true;
 
-	if (options?.displayTime && options.displayTime !== true)
-		showNextNotifTimeout = setTimeout(showNextNotif, options.displayTime ?? 5000);
+	if (options?.displayTime !== true)
+		showNextNotifTimeout = setTimeout(showNextNotif, options?.displayTime ?? 5000);
 
 	if (options?.flash || logType === "error")
 		notif.classList.add("warning");
