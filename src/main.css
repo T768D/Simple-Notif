@@ -1,21 +1,18 @@
-#notif {
-	width: max-content;
-
+#notif {	
 	border-radius: 5px;
 	background: rgba(0, 0, 0, 0.4);
 	backdrop-filter: blur(15px);
 	-webkit-backdrop-filter: blur(15px);
+	
+	pointer-events: all;
 	color: white;
 	transition: all 0.3s;
-
+	
+	width: max-content;
 	padding: 10px 20px;
-	border-radius: 5px;
-
 	white-space-collapse: preserve-spaces;
 	text-align: center;
 	font-size: 1.2vw;
-
-	pointer-events: all;
 }
 
 #notif:hover {
