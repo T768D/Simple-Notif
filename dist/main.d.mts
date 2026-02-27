@@ -1,6 +1,6 @@
 type AcceptedFunction = (logLevel: logLevel, message: string, ...others: unknown[]) => unknown;
 export type logLevel = "log" | "warn" | "error";
-interface NotifOptions {
+export interface NotifOptions {
     /**
      * Number in milliseconds for when the display will change.
      * Defaults to 5000ms
