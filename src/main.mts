@@ -1,5 +1,5 @@
 type AcceptedFunction = (logLevel: logLevel, message: string, ...others: unknown[]) => unknown;
-type NotifQueue = Parameters<typeof realShowNotif>[];
+type NotifQueue = Parameters<typeof simpleShowNotif>[];
 export type logLevel = "log" | "warn" | "error";
 
 export interface NotifOptions {
@@ -17,10 +17,15 @@ export interface NotifOptions {
 	*/
 	log?: boolean;
 	/**
-	 * Whether the item should be immediately displayed
-	 * The item previously displayed will be put back into the front of the queue
+	 * Whether the item should be immediately displayed and
+	 * the item previously displayed will be put back into the front of the queue
 	 */
 	skipQueue?: boolean;
+	/**
+	 * Whether the item should be immediately displayed and
+	 * the item previously displayed will be REPLACED and will not be added back to the queue
+	 */
+	replace?: boolean;
 }
 
 let logFunction: AcceptedFunction | undefined;
@@ -79,7 +84,14 @@ function showNotif(
 	if (logFunction)
 		logFunction(logType, devMessage ?? userMessage!, err);
 
-	if (options?.skipQueue) {
+	if (options?.replace) {
+		if (showingNotif)
+			clearTimeout(showNextNotifTimeout);
+
+		simpleShowNotif(logType, userMessage ?? devMessage!, options);
+	}
+
+	else if (options?.skipQueue) {
 		// When current notif is interrupted
 		if (showingNotif) {
 			clearTimeout(showNextNotifTimeout);
@@ -88,17 +100,22 @@ function showNotif(
 				notifQueue.unshift(currentNotifOptions);
 		}
 
-		realShowNotif(logType, userMessage ?? devMessage!, options);
+		simpleShowNotif(logType, userMessage ?? devMessage!, options);
 	}
 
 	if (!showingNotif)
-		realShowNotif(logType, userMessage ?? devMessage!, options);
+		simpleShowNotif(logType, userMessage ?? devMessage!, options);
 	else
 		notifQueue.push([logType, userMessage ?? devMessage!, options]);
 }
 
-
-function realShowNotif(
+/**
+ * Simply immediately shows the notif and does not interact with the queue at all
+ * @param logType log, warn or error. If it is a error the notif will flash
+ * @param userMessage The message that will be shown to the user on the notification
+ * @param {{displayTime?: number, flash?: boolean}} options Only displayTime and flash are used here
+ */
+export function simpleShowNotif(
 	logType: logLevel,
 	userMessage: string,
 	options?: NotifOptions
@@ -123,7 +140,7 @@ function showNextNotif() {
 	currentNotifOptions = notifQueue.shift();
 
 	if (currentNotifOptions) {
-		realShowNotif(...currentNotifOptions);
+		simpleShowNotif(...currentNotifOptions);
 		return;
 	}
 

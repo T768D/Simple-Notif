@@ -15,10 +15,15 @@ export interface NotifOptions {
     */
     log?: boolean;
     /**
-     * Whether the item should be immediately displayed
-     * The item previously displayed will be put back into the front of the queue
+     * Whether the item should be immediately displayed and
+     * the item previously displayed will be put back into the front of the queue
      */
     skipQueue?: boolean;
+    /**
+     * Whether the item should be immediately displayed and
+     * the item previously displayed will be REPLACED and will not be added back to the queue
+     */
+    replace?: boolean;
 }
 /**
  * @param func A custom function that is called when showNotif is called. This is optional
