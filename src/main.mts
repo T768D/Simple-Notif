@@ -28,12 +28,12 @@ export interface NotifOptions {
 	replace?: boolean;
 }
 
+
 let logFunction: AcceptedFunction | undefined;
 let showingNotif = false;
 let showNextNotifTimeout: NodeJS.Timeout;
 let currentNotifOptions: NotifQueue[number] | undefined;
 const notifQueue: NotifQueue = [];
-
 
 const notifContainer = document.createElement("div");
 notifContainer.id = "notifContainer";
@@ -42,7 +42,10 @@ const notif = document.createElement("div");
 notif.id = "notif";
 
 notifContainer.appendChild(notif);
-document.body.appendChild(notifContainer);
+
+document.addEventListener("DOMContentLoad", () => {
+	document.body.appendChild(notifContainer);
+});
 
 
 /** 
@@ -108,6 +111,7 @@ function showNotif(
 	else
 		notifQueue.push([logType, userMessage ?? devMessage!, options]);
 }
+
 
 /**
  * Simply immediately shows the notif and does not interact with the queue at all
