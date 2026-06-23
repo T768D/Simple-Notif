@@ -40,4 +40,11 @@ export default function initNotif(func?: AcceptedFunction): typeof showNotif;
  * @param err Meant for the error object, can be used for anything you want to be logged to console
  */
 declare function showNotif(logType: logLevel, userMessage: string | null, devMessage?: string | null, options?: NotifOptions, err?: unknown): void;
+/**
+ * Simply immediately shows the notif and does not interact with the queue at all
+ * @param logType log, warn or error. If it is a error the notif will flash
+ * @param userMessage The message that will be shown to the user on the notification
+ * @param {{displayTime?: number, flash?: boolean}} options Only displayTime and flash are used here
+ */
+export declare function simpleShowNotif(logType: logLevel, userMessage: string, options?: NotifOptions): void;
 export {};
