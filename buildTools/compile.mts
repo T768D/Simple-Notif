@@ -19,6 +19,6 @@ const compiledContents = (await (await Bun.build({
 	.trim();
 
 
-const realCSS = `const jg=document.createElement("style");jg.innerText="${css}";document.addEventListener("DOMContentLoad",()=>{document.body.appendChild(jg);});`;
+const realCSS = `const jg=document.createElement("style");jg.innerText="${css}";document.addEventListener("DOMContentLoaded",()=>{document.body.appendChild(jg);});`;
 
 writeFileSync("./dist/main.js", realCSS + compiledContents, "utf8");
