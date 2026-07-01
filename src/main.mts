@@ -43,7 +43,7 @@ notif.id = "notif";
 
 notifContainer.appendChild(notif);
 
-document.addEventListener("DOMContentLoad", () => {
+document.addEventListener("DOMContentLoaded", () => {
 	document.body.appendChild(notifContainer);
 });
 
