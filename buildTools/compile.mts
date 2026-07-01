@@ -10,7 +10,8 @@ const compiledContents = (await (await Bun.build({
 	sourcemap: "none",
 	minify: {
 		whitespace: MIMIFY,
-		identifiers: true,
+		// must stay false so importing from library works
+		identifiers: false,
 		syntax: true
 	}
 })).outputs[0]
